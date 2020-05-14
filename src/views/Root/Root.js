@@ -1,19 +1,6 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import Button from 'components/atoms/Button/Button';
-import GlobalStyle from 'theme/GlobalStyle';
-import { theme } from 'theme/mainTheme';
+import GetPokemons from 'Api/GetPokemons';
 
-const Root = () => (
-  <div>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <>
-        <Button>Close / Save</Button>
-        <Button secondary>Remove</Button>
-      </>
-    </ThemeProvider>
-  </div>
-);
+const Root = () => <GetPokemons />;
 
 export default Root;
