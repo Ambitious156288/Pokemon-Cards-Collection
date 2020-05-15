@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import { Card, Button } from 'react-bootstrap';
+
+const StyledGallery = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 30px;
+  margin: 100px 20px;
+`;
 
 const API_URL = 'https://api.pokemontcg.io';
 const VERSION = 'v1';
@@ -20,39 +28,29 @@ const getPokemons = () => {
   }, [page]);
 
   return (
-    <>
-      <div>
-        {name.map(item => (
-          <div key={item.id}>
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={item.imageUrl} />
-              <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Text>
-                  <ul>
-                    <li>number: {item.number}</li>
-                    <li>hp: {item.hp}</li>
+    <StyledGallery>
+      {name.map(item => (
+        <div key={item.id}>
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={item.imageUrl} />
+            <Card.Body>
+              <Card.Title>{item.name}</Card.Title>
+              <Card.Text>
+                <ul>
+                  <li>number: {item.number}</li>
+                  <li>hp: {item.hp}</li>
 
-                    <li>Supertype: Pokémon</li>
-                    <li>Subtype: Stage 2</li>
-                    <li>Rarity: Uncommon</li>
-                  </ul>
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
-      </div>
-      {/* <div>
-        {name.map(item => (
-          <div key={item.id}>
-            {item.name}, {item.number}, {item.hp}
-            <img src={item.imageUrl} alt="Logo" />
-          </div>
-        ))}
-      </div> */}
-    </>
+                  <li>Supertype: Pokémon</li>
+                  <li>Subtype: Stage 2</li>
+                  <li>Rarity: Uncommon</li>
+                </ul>
+              </Card.Text>
+              <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+          </Card>
+        </div>
+      ))}
+    </StyledGallery>
   );
 };
 
