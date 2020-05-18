@@ -3,11 +3,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 
-const StyledGallery = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-  gap: 30px;
-  margin: 100px 20px;
+const StyledCenter = styled.div`
+  text-align: center;
 `;
 
 const PokemonCard = ({ name, url }) => {
@@ -22,23 +19,17 @@ const PokemonCard = ({ name, url }) => {
   }, [pokemonIndex]);
 
   return (
-    <>
-      <StyledGallery>
-        <div>
+    <StyledCenter>
+      <Card border="dark" style={{ width: '18rem' }}>
+        <Card.Header>
           <img src={imageUrl} alt="img" />
-
-          <Card border="dark" style={{ width: '18rem' }}>
-            <Card.Header>
-              {pokemonIndex}:{name}
-            </Card.Header>
-            <Card.Body>
-              <Card.Title></Card.Title>
-              <Card.Text>{`https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`}</Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </StyledGallery>
-    </>
+        </Card.Header>
+        <Card.Body>
+          #{pokemonIndex}
+          <Card.Title>{name}</Card.Title>
+        </Card.Body>
+      </Card>
+    </StyledCenter>
   );
 };
 
