@@ -19,17 +19,26 @@ const PokemonCard = ({ name, url }) => {
   }, [pokemonIndex]);
 
   return (
-    <StyledCenter>
-      <Card border="dark" style={{ width: '18rem' }}>
-        <Card.Header>
-          <img src={imageUrl} alt="img" />
-        </Card.Header>
-        <Card.Body>
-          #{pokemonIndex}
-          <Card.Title>{name}</Card.Title>
-        </Card.Body>
-      </Card>
-    </StyledCenter>
+    <>
+      <StyledCenter>
+        <>
+          <Card
+            bg={'Dark'.toLowerCase()}
+            text={'Dark'.toLowerCase() === 'light' ? 'dark' : 'white'}
+            style={{ width: '18rem' }}
+          >
+            <Card.Header>
+              <img src={imageUrl} alt="img" />
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>#{pokemonIndex} </Card.Title>
+              <Card.Text>{name}</Card.Text>
+            </Card.Body>
+          </Card>
+          <br />
+        </>
+      </StyledCenter>
+    </>
   );
 };
 
