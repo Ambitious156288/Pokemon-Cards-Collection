@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
 
 const StyledCenter = styled.div`
   text-align: center;
 `;
 
+const StyledImgg = styled.img`
+  opacity: 0;
+`;
+
 const PokemonCard = ({ name, url }) => {
   const [imageUrl, setImageUrl] = useState([]);
   const [pokemonIndex, setPokemonIndex] = useState([]);
+  const [imageLoading, setImageLoading] = useState(true);
 
   useEffect(() => {
     setPokemonIndex(url.split('/')[6]);
@@ -28,7 +33,17 @@ const PokemonCard = ({ name, url }) => {
             style={{ width: '18rem' }}
           >
             <Card.Header>
-              <img src={imageUrl} alt="img" />
+              {imageLoading ? (
+                <div className="text-center">
+                  <Spinner animation="border" variant="light" />
+                </div>
+              ) : null}
+              <StyledImgg
+                src={imageUrl}
+                alt="img"
+                onLoad={() => setImageLoading(false)}
+                style={imageLoading ? null : { opacity: 1 }}
+              />
             </Card.Header>
             <Card.Body>
               <Card.Title>#{pokemonIndex} </Card.Title>
