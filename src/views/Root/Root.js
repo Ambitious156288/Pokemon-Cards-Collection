@@ -6,14 +6,21 @@ import Backgroud from 'theme/Background';
 import PokemonsList from 'Api/PokemonsList';
 import Header from 'components/Header';
 import Triangle from 'components/Triangle';
+import { InputProvider } from 'context/InputContext';
 
-const Root = () => (
-  <ThemeProvider theme={theme}>
-    <Backgroud />
-    <Triangle />
-    <Header />
-    <PokemonsList />
-  </ThemeProvider>
-);
+const Root = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <InputProvider>
+        <Backgroud />
+        <Triangle />
+
+        <Header />
+
+        <PokemonsList />
+      </InputProvider>
+    </ThemeProvider>
+  );
+};
 
 export default Root;

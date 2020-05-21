@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Card, Spinner } from 'react-bootstrap';
+import { InputContext } from 'context/InputContext';
 
 const StyledCenter = styled.div`
   text-align: center;
@@ -23,6 +24,8 @@ const PokemonCard = ({ name, url, theme }) => {
     );
   }, [pokemonIndex]);
 
+  const { inputValue } = useContext(InputContext);
+
   return (
     <StyledCenter>
       <Card bg={theme} text={theme === 'light' ? 'dark' : 'white'} style={{ width: '18rem' }}>
@@ -41,6 +44,7 @@ const PokemonCard = ({ name, url, theme }) => {
         </Card.Header>
         <Card.Body>
           <Card.Title>#{pokemonIndex} </Card.Title>
+          {inputValue === name ? <Card.Text>{name}</Card.Text> : 'null'}
           <Card.Text>{name}</Card.Text>
         </Card.Body>
       </Card>

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Navbar, Form, Nav, Button, FormControl } from 'react-bootstrap';
 import pokemon from 'assets/pokemon.png';
+import { InputContext } from 'context/InputContext';
 
 const StyledImage = styled.img`
   height: 35px;
@@ -29,14 +30,21 @@ const StyledFormControl = styled(FormControl)`
 `;
 
 const Header = () => {
+  const { inputValue, handleInput } = useContext(InputContext);
+
   return (
     <StyledNavbar fixed="top" bg="dark">
       <Nav className="mr-auto">
         <StyledH2>Pokemon Cards Collection</StyledH2>
       </Nav>
-
       <Form inline>
-        <StyledFormControl type="text" placeholder="search pokemons..." className="mr-sm-2" />
+        <StyledFormControl
+          value={inputValue}
+          onChange={handleInput}
+          type="text"
+          placeholder="search pokemons..."
+          className="mr-sm-2"
+        />
         <StyledButton variant="success">
           <StyledImage src={pokemon} alt="" />
         </StyledButton>
