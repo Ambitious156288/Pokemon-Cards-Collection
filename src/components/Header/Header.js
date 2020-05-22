@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Navbar, Form, Nav, Button, FormControl } from 'react-bootstrap';
 import pokemon from 'assets/pokemon.png';
 import { InputContext } from 'context/InputContext';
+import Search from 'components/Header/Search';
+import Triangle from 'components/Header/Triangle';
 
 const StyledImage = styled.img`
   height: 35px;
@@ -33,23 +35,30 @@ const Header = () => {
   const { inputValue, handleInput } = useContext(InputContext);
 
   return (
-    <StyledNavbar fixed="top" bg="dark">
-      <Nav className="mr-auto">
-        <StyledH2>Pokemon Cards Collection</StyledH2>
-      </Nav>
-      <Form inline>
-        <StyledFormControl
-          value={inputValue}
-          onChange={handleInput}
-          type="text"
-          placeholder="search pokemons..."
-          className="mr-sm-2"
-        />
-        <StyledButton variant="success">
-          <StyledImage src={pokemon} alt="" />
-        </StyledButton>
-      </Form>
-    </StyledNavbar>
+    <>
+      <Triangle />
+
+      <StyledNavbar fixed="top" bg="dark">
+        <Nav className="mr-auto">
+          <StyledH2>Pokemon Cards Collection</StyledH2>
+        </Nav>
+        <Form inline>
+          <StyledFormControl
+            value={inputValue}
+            onChange={handleInput}
+            type="text"
+            placeholder="search pokemons..."
+            className="mr-sm-2"
+          />
+
+          <StyledButton variant="success">
+            <StyledImage src={pokemon} alt="" />
+          </StyledButton>
+        </Form>
+
+        <Search />
+      </StyledNavbar>
+    </>
   );
 };
 

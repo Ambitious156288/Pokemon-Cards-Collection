@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const InputContext = createContext();
 
 const InputProvider = ({ children }) => {
-  const [inputValue, setInputValue] = useState('dadasda');
+  const [inputValue, setInputValue] = useState('');
 
   const handleInput = e => {
     setInputValue(e.target.value);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
-import PokemonCard from '../components/PokemonCard';
+import PokemonCard from './PokemonCard';
 
 const StyledMargin = styled.div`
   margin-top: 100px;

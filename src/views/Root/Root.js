@@ -3,21 +3,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'theme/theme';
 import Backgroud from 'theme/Background';
-import PokemonsList from 'Api/PokemonsList';
-import Header from 'components/Header';
-import Triangle from 'components/Triangle';
+import Header from 'components/Header/Header';
 import { InputProvider } from 'context/InputContext';
+import Show from 'components/PokemonCatalog/Show';
+// import Search from 'components/Search';
 
 const Root = () => {
   return (
     <ThemeProvider theme={theme}>
       <InputProvider>
         <Backgroud />
-        <Triangle />
+
+        {/* <Search /> */}
 
         <Header />
 
-        <PokemonsList />
+        <Show />
       </InputProvider>
     </ThemeProvider>
   );
