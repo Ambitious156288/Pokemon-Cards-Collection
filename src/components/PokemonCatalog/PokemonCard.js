@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Card, Spinner } from 'react-bootstrap';
-import { InputContext } from 'context/InputContext';
 
 const StyledCenter = styled.div`
   text-align: center;
@@ -24,47 +23,35 @@ const PokemonCard = ({ name, url, theme }) => {
     );
   }, [pokemonIndex]);
 
-  const { inputValue } = useContext(InputContext);
-
   const singleCard = useRef(null);
-
-  // const hideCards = () => {
-  //   singleCard.current.focus();
-  //   console.log(singleCard.current.style);
-  // };
 
   return (
     <StyledCenter>
-      {name.includes(inputValue) ? (
-        <Card
-          ref={singleCard}
-          id={name}
-          bg={theme}
-          text={theme === 'light' ? 'dark' : 'white'}
-          style={{ width: '18rem' }}
-        >
-          <Card.Header>
-            {imageLoading ? (
-              <div className="text-center">
-                <Spinner animation="border" variant="light" />
-              </div>
-            ) : null}
-            <StyledImg
-              src={imageUrl}
-              alt="img"
-              onLoad={() => setImageLoading(false)}
-              style={imageLoading ? null : { opacity: 1 }}
-            />
-          </Card.Header>
-          <Card.Body>
-            <Card.Title>#{pokemonIndex} </Card.Title>
-            {name.includes(inputValue) ? <Card.Text>{name}</Card.Text> : 'null'}
-            <Card.Text>{name}</Card.Text>
-          </Card.Body>
-        </Card>
-      ) : (
-        <div>XXXXX</div>
-      )}
+      <Card
+        ref={singleCard}
+        id={name}
+        bg={theme}
+        text={theme === 'light' ? 'dark' : 'white'}
+        style={{ width: '18rem' }}
+      >
+        <Card.Header>
+          {imageLoading ? (
+            <div className="text-center">
+              <Spinner animation="border" variant="light" />
+            </div>
+          ) : null}
+          <StyledImg
+            src={imageUrl}
+            alt="img"
+            onLoad={() => setImageLoading(false)}
+            style={imageLoading ? null : { opacity: 1 }}
+          />
+        </Card.Header>
+        <Card.Body>
+          <Card.Title>#{pokemonIndex} </Card.Title>
+          <Card.Text>{name}</Card.Text>
+        </Card.Body>
+      </Card>
     </StyledCenter>
   );
 };

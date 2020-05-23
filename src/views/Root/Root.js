@@ -6,16 +6,12 @@ import Backgroud from 'theme/Background';
 import Header from 'components/Header/Header';
 import { InputProvider } from 'context/InputContext';
 import Show from 'components/PokemonCatalog/Show';
-// import Search from 'components/Search';
 
 const Root = () => {
   return (
     <ThemeProvider theme={theme}>
       <InputProvider>
         <Backgroud />
-
-        {/* <Search /> */}
-
         <Header />
 
         <Show />

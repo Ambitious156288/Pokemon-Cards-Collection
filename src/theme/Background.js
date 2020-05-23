@@ -6,6 +6,7 @@ const Background = createGlobalStyle`
     body{ 
         font-family: 'Roboto', sans-serif;
         background: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)), url(${backgroundImage}) center;
+        background-attachment: fixed;
     }
 `;
 

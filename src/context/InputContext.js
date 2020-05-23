@@ -5,13 +5,20 @@ const InputContext = createContext();
 
 const InputProvider = ({ children }) => {
   const [inputValue, setInputValue] = useState('');
+  const [quantity, setQuantity] = useState(10);
 
   const handleInput = e => {
     setInputValue(e.target.value);
   };
 
+  const handleQuantity = () => {
+    setQuantity(quantity + 10);
+  };
+
   return (
-    <InputContext.Provider value={{ inputValue, handleInput }}>{children}</InputContext.Provider>
+    <InputContext.Provider value={{ inputValue, handleInput, quantity, handleQuantity }}>
+      {children}
+    </InputContext.Provider>
   );
 };
 
