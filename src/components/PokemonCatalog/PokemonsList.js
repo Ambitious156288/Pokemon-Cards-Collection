@@ -25,12 +25,8 @@ const StyledCenter = styled.div`
   margin: 100px;
 `;
 
-// const StyledButton = styled(Button)
-
-// `;
-
 const getPokemons = () => {
-  const { quantity, handleQuantity } = useContext(InputContext);
+  const { quantity, handleQuantity, counter } = useContext(InputContext);
 
   const API_URL = 'https://pokeapi.co/api';
   const VERSION = 'v2';
@@ -69,9 +65,13 @@ const getPokemons = () => {
         ))}
       </StyledGallery>
       <StyledCenter>
-        <Button size="lg" variant="warning" onClick={handleQuantity}>
-          load more
-        </Button>
+        {counter === 3 ? (
+          ''
+        ) : (
+          <Button size="lg" variant="warning" onClick={handleQuantity}>
+            {counter === 2 ? 'show all' : 'load more'}
+          </Button>
+        )}
       </StyledCenter>
     </>
   );

@@ -25,7 +25,6 @@ const Header = () => {
         <Nav className="mr-auto">
           <StyledH2>Pokemon Cards Collection</StyledH2>
         </Nav>
-
         <ShowCard />
       </StyledNavbar>
     </>
