@@ -26,7 +26,7 @@ const StyledCenter = styled.div`
 `;
 
 const getPokemons = () => {
-  const { quantity, handleQuantity, counter } = useContext(InputContext);
+  const { quantity, handleQuantity, counter, inputValue } = useContext(InputContext);
 
   const API_URL = 'https://pokeapi.co/api';
   const VERSION = 'v2';
@@ -60,14 +60,15 @@ const getPokemons = () => {
       </StyledMargin>
 
       <StyledGallery>
-        {pokemons.map(item => (
-          <PokemonCard key={item.id} name={item.name} url={item.url} theme={color} />
-        ))}
+        {pokemons.map(
+          item =>
+            item.name.includes(inputValue) && (
+              <PokemonCard key={item.id} name={item.name} url={item.url} theme={color} />
+            ),
+        )}
       </StyledGallery>
       <StyledCenter>
-        {counter === 3 ? (
-          ''
-        ) : (
+        {counter === 3 ? null : (
           <Button size="lg" variant="warning" onClick={handleQuantity}>
             {counter === 2 ? 'show all' : 'load more'}
           </Button>

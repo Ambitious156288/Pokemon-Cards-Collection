@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Card, Spinner } from 'react-bootstrap';
@@ -23,12 +23,9 @@ const PokemonCard = ({ name, url, theme }) => {
     );
   }, [pokemonIndex]);
 
-  const singleCard = useRef(null);
-
   return (
     <StyledCenter>
       <Card
-        ref={singleCard}
         id={name}
         bg={theme}
         text={theme === 'light' ? 'dark' : 'white'}
