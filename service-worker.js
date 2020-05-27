@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Pokemon-Cards-Collection/precache-manifest.cbe1ac48569f6b36148b80de473684fe.js"
+  "/Pokemon-Cards-Collection/precache-manifest.62cbcfa400922a255577ed27b9719f0f.js"
 );
 
 workbox.clientsClaim();

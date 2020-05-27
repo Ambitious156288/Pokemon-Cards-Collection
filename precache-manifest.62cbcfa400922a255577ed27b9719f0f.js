@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "0470597c3d3d5de2a083",
-    "url": "/Pokemon-Cards-Collection/static/js/main.3a7b0c56.chunk.js"
+    "revision": "53301107c24027867afa",
+    "url": "/Pokemon-Cards-Collection/static/js/main.68c0e175.chunk.js"
   },
   {
     "revision": "aee23bec33cb003fb443",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/Pokemon-Cards-Collection/static/media/backgroundImage.396f9077.png"
   },
   {
-    "revision": "4372dbbc152382b561504b8f3778a63e",
+    "revision": "5bae589cd7079faf49020f53b20798bd",
     "url": "/Pokemon-Cards-Collection/index.html"
   }
 ];
