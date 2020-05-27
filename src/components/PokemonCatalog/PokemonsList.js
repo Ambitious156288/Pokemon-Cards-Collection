@@ -48,13 +48,12 @@ const getPokemons = () => {
       <StyledMargin>
         <BootstrapSwitchButton
           onstyle="dark"
-          checked
-          width={80}
-          onlabel="Dark"
-          offlabel="Light"
+          width={160}
+          onlabel=" Dark Cards"
+          offlabel=" Light Cards"
           onChange={() => {
-            setFlag(!flag);
             setColor(flag ? 'dark' : 'light');
+            setFlag(!flag);
           }}
         />
       </StyledMargin>

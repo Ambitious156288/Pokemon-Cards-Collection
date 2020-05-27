@@ -13,7 +13,6 @@ const Root = () => {
       <InputProvider>
         <Backgroud />
         <Header />
-
         <Show />
       </InputProvider>
     </ThemeProvider>

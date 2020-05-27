@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Navbar, Nav } from 'react-bootstrap';
-import Search from 'components/Header/Search';
-
 import Triangle from 'components/Header/Triangle';
-// import ShowCard from 'components/Header/ShowCard';
+import Input from 'components/Header/Input';
 
 const StyledNavbar = styled(Navbar)`
   border-bottom: 2px solid ${({ theme }) => theme.black};
@@ -27,9 +25,7 @@ const Header = () => {
           <StyledH2>Pokemon Cards Collection</StyledH2>
         </Nav>
 
-        <Search />
-
-        {/* <ShowCard /> */}
+        <Input />
       </StyledNavbar>
     </>
   );

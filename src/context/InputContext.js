@@ -1,5 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const InputContext = createContext();
@@ -9,21 +8,11 @@ const InputProvider = ({ children }) => {
   const [quantity, setQuantity] = useState(10);
   const [counter, setCounter] = useState(0);
 
-  // /////////////////// /////////////////// /////////////////// /////////////////
-  const API_URL = 'https://pokeapi.co/api';
-  const VERSION = 'v2';
-  const RESOURCE = 'pokemon?limit=';
-  const API_ENDPOINT = `${API_URL}/${VERSION}/${RESOURCE}${quantity}`;
+  const [toggle, setToggle] = useState(false);
 
-  const [pokemons, setPokemons] = useState([]);
-
-  useEffect(() => {
-    axios.get(API_ENDPOINT).then(res => {
-      setPokemons(res.data.results);
-    });
-  }, [pokemons]);
-
-  // ///////////////////// /////////////////// /////////////////// /////////////////
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
 
   const handleInput = e => {
     setInputValue(e.target.value);
@@ -37,7 +26,15 @@ const InputProvider = ({ children }) => {
 
   return (
     <InputContext.Provider
-      value={{ inputValue, handleInput, quantity, handleQuantity, counter, pokemons }}
+      value={{
+        inputValue,
+        handleInput,
+        quantity,
+        handleQuantity,
+        counter,
+        toggle,
+        handleToggle,
+      }}
     >
       {children}
     </InputContext.Provider>

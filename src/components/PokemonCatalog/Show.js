@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import PokemonsList from 'components/PokemonCatalog/PokemonsList';
+import { InputContext } from 'context/InputContext';
 
 const StyledButton = styled.div`
   position: absolute;
@@ -11,12 +12,12 @@ const StyledButton = styled.div`
 `;
 
 const Show = () => {
-  const [toggle, setToggle] = useState(false);
+  const { toggle, handleToggle } = useContext(InputContext);
 
   return (
     <>
       <StyledButton>
-        <Button variant="contained" color="primary" onClick={() => setToggle(!toggle)}>
+        <Button variant="contained" color="primary" onClick={handleToggle}>
           {toggle ? 'Hide' : 'Show'} Cards
         </Button>
       </StyledButton>
